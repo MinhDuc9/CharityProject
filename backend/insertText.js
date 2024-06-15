@@ -7,7 +7,7 @@ async function insertText() {
         const sampleTexts = [
             { content: 'Hello MongoDB!' },
             { content: 'Testing Mongoose' },
-            { content: 'Sample text document' }
+            { content: 'Sample text document' },
         ];
 
         // Insert sample texts into MongoDB

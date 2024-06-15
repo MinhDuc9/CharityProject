@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {
-    setTokensFromSession
-} = require('../app/middlewares/setToken');
+const { setTokensFromSession } = require('../app/middlewares/setToken');
 
 const adminController = require('../app/controllers/adminController');
 

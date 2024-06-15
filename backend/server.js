@@ -1,5 +1,5 @@
 require('dotenv').config();
-const express = require("express");
+const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -43,4 +43,4 @@ route(app);
 
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
-})
+});
