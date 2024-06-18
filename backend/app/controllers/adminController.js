@@ -15,9 +15,7 @@ const oauth2Client = new google.auth.OAuth2(
 class AdminController {
     // [GET] /admin/login
     login(req, res, next) {
-        res.json({
-            user: "Test"
-        })
+        res.json(req.body);
     }
 
     // [GET] /admin/auth
