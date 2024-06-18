@@ -1,24 +1,36 @@
 import React from 'react';
-import NavBar from './components/NavBar';
-import SponsorshipSection from "./components/SponsorshipSection";
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import NavBar from "./components/helpers/NavBar";
+import SponsorshipSection from "./components/sponsor/SponsorshipSection";
+import Login from "./components/login/Login";
+import { isAdminSubdomain } from './utils/subdomain';
 import './App.css';
+
 
 const App = () => {
     return (
-        <div className="app">
-            <NavBar/>
-            <header className="main-section">
-                <h1>Sứ Mạng Tầm Nhìn</h1>
-                <button className="hero-button">Về Phiếu Linh</button>
-            </header>
-            <main>
-                <section id="sponsor">
-                    <SponsorshipSection/>
-                </section>
-                {/* Add more sections with corresponding IDs */}
-            </main>
-        </div>
+        <Router>
+            <div className="app">
+                {isAdminSubdomain() ? (
+                    <Login />
+                ) : (
+                    <>
+                        <NavBar />
+                        <header id="home" className="main-section">
+                            <h1>Sứ Mạng Tầm Nhìn</h1>
+                            <button className="hero-button">Về Phiếu Linh</button>
+                        </header>
+                        <main>
+                            <Routes>
+                                <Route path="/" element={<SponsorshipSection />} />
+                                {/* Other routes can be added here */}
+                            </Routes>
+                        </main>
+                    </>
+                )}
+            </div>
+        </Router>
     );
-}
+};
 
 export default App;

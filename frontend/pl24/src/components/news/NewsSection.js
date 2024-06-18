@@ -2,8 +2,8 @@
 import React, { useRef } from 'react';
 import Card from './Card';
 import './NewsSection.css';
-import leftArrow from '../assets/left-arrow.svg'; // Ensure the correct path to your SVGs
-import rightArrow from '../assets/right-arrow.svg';
+import leftArrow from '../../assets/svg/left-arrow.svg'; // Ensure the correct path to your SVGs
+import rightArrow from '../../assets/svg/right-arrow.svg';
 
 const NewsSection = () => {
     const scrollRef = useRef(null);
