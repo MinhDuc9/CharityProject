@@ -3,6 +3,7 @@ const { google } = require('googleapis');
 const bcrypt = require('bcrypt');
 
 const Admin = require('../models/Admin');
+const { json } = require('express');
 
 // Define your OAuth2 client with your credentials
 const oauth2Client = new google.auth.OAuth2(
@@ -14,7 +15,9 @@ const oauth2Client = new google.auth.OAuth2(
 class AdminController {
     // [GET] /admin/login
     login(req, res, next) {
-        res.send('Hello');
+        res.json({
+            user: "Test"
+        })
     }
 
     // [GET] /admin/auth
