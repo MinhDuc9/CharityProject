@@ -4,7 +4,7 @@ const { setTokensFromSession } = require('../app/middlewares/setToken');
 
 const adminController = require('../app/controllers/adminController');
 
-router.get('/login', adminController.login);
+router.post('/login', adminController.login);
 router.get('/auth', adminController.authenticate);
 router.get('/authCallBack', adminController.authCallBack);
 router.get('/lists', adminController.listFolderItems);
