@@ -18,7 +18,7 @@ const App = () => {
                         <NavBar />
                         <header id="home" className="main-section">
                             <h1>Sứ Mạng Tầm Nhìn</h1>
-                            <button className="hero-button">Về Phiếu Linh</button>
+                            <button className="hero-button">Về Phiêu Linh</button>
                         </header>
                         <main>
                             <Routes>
