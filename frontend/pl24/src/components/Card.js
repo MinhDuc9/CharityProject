@@ -1,13 +1,16 @@
-import React from "react";
+import React from 'react';
+import './Card.css';
 
-const Card = ({ title, date, description, imageUrl }) => {
+const Card = ({ image, title, date, description, link, linkText }) => {
     return (
-        <div style={{ margin: '10px', width: '300px', textAlign: 'center' }}>
-            <img src={imageUrl} alt={title} style={{ width: '100%', borderRadius: '10px' }} />
-            <h3>{title}</h3>
-            <p>{date}</p>
-            <p>{description}</p>
-            <a href="#">Read More</a>
+        <div className="card">
+            <img src={image} alt={title} className="card-image" />
+            <div className="card-content">
+                <h3 className="card-title">{title}</h3>
+                <p className="card-date">{date}</p>
+                <p className="card-description">{description}</p>
+                <a href={link} target="_blank" rel="noopener noreferrer" className="card-link">{linkText}</a>
+            </div>
         </div>
     );
 };

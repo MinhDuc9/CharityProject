@@ -1,6 +1,4 @@
-/* NavBar.css */
 
-/* General styling */
 body {
     font-family: 'Inter', sans-serif;
 }
@@ -102,7 +100,7 @@ body {
     margin-left: 10px;
     padding: 10px 20px;
     border: none;
-    background-color: #ff6b6b;
+    background-color: #444B5B;
     color: white;
     border-radius: 5px;
     cursor: pointer;

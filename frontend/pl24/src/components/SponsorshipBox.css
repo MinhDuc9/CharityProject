@@ -1,0 +1,79 @@
+/* src/components/SponsorshipBox.css */
+
+.sponsorship-box {
+    background-color: #F4F4F4; /* Background color */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Space between boxes */
+}
+
+.sponsorship-description {
+    flex: 1;
+    font-size: 1em;
+    color: #333;
+}
+
+.sponsorship-levels {
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+    max-width: 50%; /* Ensure levels take up 50% of the box */
+}
+
+.level {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.level img {
+    width: 100%;
+    height: auto;
+}
+
+/* Apply colors to ticks based on rank */
+.level.diamond img {
+    filter: invert(49%) sepia(39%) saturate(2645%) hue-rotate(72deg) brightness(95%) contrast(86%);
+    /* This CSS filter approximates the color #a3c858 */
+}
+
+.level.gold img {
+    filter: invert(74%) sepia(28%) saturate(621%) hue-rotate(2deg) brightness(106%) contrast(106%);
+    /* This CSS filter approximates the color #f0b429 */
+}
+
+.level.silver img {
+    filter: invert(61%) sepia(7%) saturate(276%) hue-rotate(153deg) brightness(92%) contrast(87%);
+    /* This CSS filter approximates the color #6ca3a7 */
+}
+
+.level.bronze img {
+    filter: invert(43%) sepia(81%) saturate(2119%) hue-rotate(330deg) brightness(91%) contrast(94%);
+    /* This CSS filter approximates the color #d16161 */
+}
+
+/* Hover effect for small screens */
+@media (max-width: 768px) {
+    .sponsorship-box .sponsorship-levels {
+        display: none; /* Hide levels initially on small screens */
+    }
+
+    .sponsorship-box:hover .sponsorship-levels {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        right: 10px;
+        top: 10px;
+        z-index: 10;
+    }
+}
