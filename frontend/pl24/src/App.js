@@ -12,9 +12,10 @@ const App = () => {
                 <button className="hero-button">Về Phiếu Linh</button>
             </header>
             <main>
-
-                <SponsorshipSection/>
-
+                <section id="sponsor">
+                    <SponsorshipSection/>
+                </section>
+                {/* Add more sections with corresponding IDs */}
             </main>
         </div>
     );

@@ -10,6 +10,10 @@ body {
     padding: 10px 20px;
     background-color: #f4f4f4; /* Light grey background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the nav bar */
+
+    position: sticky; /* Make the navbar sticky */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it's above other content */
 }
 
 .logo img {
