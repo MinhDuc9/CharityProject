@@ -1,13 +1,13 @@
 {
   "nav": {
-    "home": "Home",
-    "programs": "Programs",
-    "program1": "Program 1",
-    "program2": "Program 2",
-    "program3": "Program 3",
-    "sponsor": "Sponsor",
-    "news": "News",
-    "contact": "Contact",
-    "donate": "Donate"
+    "home": "HOME",
+    "programs": "PROGRAMS",
+    "program1": "PROGRAMS 1",
+    "program2": "PROGRAMS 2",
+    "program3": "PROGRAMS 3",
+    "sponsor": "SPONSOR",
+    "news": "NEWS",
+    "contact": "CONTACT",
+    "donate": "DONATE"
   }
 }

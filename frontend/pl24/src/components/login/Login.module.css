@@ -30,7 +30,7 @@
     color: #555;
 }
 
-.inputGroup input[type="email"],
+.inputGroup input[type="user"],
 .inputGroup input[type="password"] {
     width: 100%;
     padding: 10px;

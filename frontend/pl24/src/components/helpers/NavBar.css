@@ -115,6 +115,8 @@ body {
     background-color: #ff4c4c;
 }
 
+
+
 @media (max-width: 768px) {
     .nav-bar {
         flex-direction: column;
