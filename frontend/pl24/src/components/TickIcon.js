@@ -1,10 +1,11 @@
 // src/components/TickIcon.js
 import React from 'react';
+import './TickIcon.css'; // Assuming a CSS file for additional styles
 
-const TickIcon = ({ color }) => (
-    <svg width="45" height="36" viewBox="0 0 45 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+const TickIcon = () => (
+    <svg className="tick-icon" width="45" height="36" viewBox="0 0 45 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_105_38)">
-            <path d="M37 4L17.0625 24L8 14.9091" stroke={color} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" shapeRendering="crispEdges"/>
+            <path d="M37 4L17.0625 24L8 14.9091" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" shapeRendering="crispEdges"/>
         </g>
         <defs>
             <filter id="filter0_d_105_38" x="0" y="0" width="45" height="36" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

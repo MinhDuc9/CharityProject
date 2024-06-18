@@ -32,22 +32,22 @@ const SponsorshipSection = () => {
     return (
         <section id="sponsor" className="sponsorship-section">
             <h2 className="section-title">Các Gói Tài Trợ</h2>
-            <div className="sponsorship-levels">
+            <div className="sponsorship-levels-top">
                 <div className="level diamond">
                     <h3>Kim Cương</h3>
-                    <p>15.000.000đ<br />(số lượng 1)</p>
+                    <span className="info-bubble">15.000.000đ<br/>(số lượng 1)</span>
                 </div>
                 <div className="level gold">
                     <h3>Vàng</h3>
-                    <p>9.000.000đ<br />(số lượng 2)</p>
+                    <span className="info-bubble">9.000.000đ<br/>(số lượng 2)</span>
                 </div>
                 <div className="level silver">
                     <h3>Bạc</h3>
-                    <p>5.000.000đ<br />(số lượng 3)</p>
+                    <span className="info-bubble">5.000.000đ<br/>(số lượng 3)</span>
                 </div>
                 <div className="level bronze">
                     <h3>Đồng</h3>
-                    <p>3.000.000đ</p>
+                    <span className="info-bubble">3.000.000đ</span>
                 </div>
             </div>
             <div className="sponsorship-container">

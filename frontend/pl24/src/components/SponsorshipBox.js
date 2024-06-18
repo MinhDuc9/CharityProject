@@ -9,18 +9,33 @@ const SponsorshipBox = ({ description, isDiamond, isGold, isSilver, isBronze }) 
             <div className="sponsorship-description">
                 <p>{description}</p>
             </div>
-            <div className="sponsorship-levels">
-                <div className="level diamond">
-                    {isDiamond && <TickIcon color="#a3c858" />}
+            <div className="sponsorship-levels-bottom">
+                <div className={`level diamond ${isDiamond ? 'show' : ''}`}>
+                    {isDiamond && <TickIcon />}
                 </div>
-                <div className="level gold">
-                    {isGold && <TickIcon color="#f0b429" />}
+                <div className={`level gold ${isGold ? 'show' : ''}`}>
+                    {isGold && <TickIcon />}
                 </div>
-                <div className="level silver">
-                    {isSilver && <TickIcon color="#6ca3a7" />}
+                <div className={`level silver ${isSilver ? 'show' : ''}`}>
+                    {isSilver && <TickIcon />}
                 </div>
-                <div className="level bronze">
-                    {isBronze && <TickIcon color="#d16161" />}
+                <div className={`level bronze ${isBronze ? 'show' : ''}`}>
+                    {isBronze && <TickIcon />}
+                </div>
+            </div>
+            <div className="sponsorship-levels-bubble">
+                {/* Same as sponsorship-levels-bottom but for the bubble on small screens */}
+                <div className={`level diamond ${isDiamond ? 'show' : ''}`}>
+                    {isDiamond && <TickIcon />}
+                </div>
+                <div className={`level gold ${isGold ? 'show' : ''}`}>
+                    {isGold && <TickIcon />}
+                </div>
+                <div className={`level silver ${isSilver ? 'show' : ''}`}>
+                    {isSilver && <TickIcon />}
+                </div>
+                <div className={`level bronze ${isBronze ? 'show' : ''}`}>
+                    {isBronze && <TickIcon />}
                 </div>
             </div>
         </div>
