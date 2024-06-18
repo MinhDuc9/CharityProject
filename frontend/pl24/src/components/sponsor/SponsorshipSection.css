@@ -1,0 +1,77 @@
+/* src/components/SponsorshipSection.css */
+
+.sponsorship-section {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Background color of the section */
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sponsorship-levels-top {
+    display: flex;
+    justify-content: space-between; /* Space evenly between levels */
+    align-items: flex-end; /* Align text at the bottom */
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: auto auto 40px; /* Center align horizontally */
+}
+
+.level {
+    position: relative; /* For positioning the hover bubble */
+    text-align: center;
+    flex: 1; /* Distribute space equally */
+    margin: 0 10px; /* Add some spacing between levels */
+}
+
+.level h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.level .info-bubble {
+    display: none; /* Hide bubble by default */
+    position: absolute;
+    bottom: 100%; /* Position above the level text */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 100;
+    font-size: 0.875em;
+    text-align: center;
+}
+
+.level:hover .info-bubble {
+    display: block; /* Show bubble on hover */
+}
+
+.level.diamond h3 {
+    color: #a3c858; /* Diamond color */
+}
+
+.level.gold h3 {
+    color: #f0b429; /* Gold color */
+}
+
+.level.silver h3 {
+    color: #6ca3a7; /* Silver color */
+}
+
+.level.bronze h3 {
+    color: #d16161; /* Bronze color */
+}
+
+.sponsorship-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Increased spacing between boxes */
+    margin: auto;
+}

@@ -1,0 +1,93 @@
+/* src/components/SponsorshipBox.css */
+
+.sponsorship-box {
+    background-color: #F4F4F4; /* Background color */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding-left: 2.5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 150px; /* Maintain a decent height */
+    position: relative; /* Needed for absolute positioning of the bubble */
+
+    /* Dynamic width adjustments */
+    min-width: 300px;
+    max-width: 1500px;
+    width: 100%; /* Let it take full width up to max-width */
+}
+
+.sponsorship-description {
+    flex: 0 0 50%; /* Occupy 50 of the box's width */
+    font-size: 1.3em;
+    color: #333;
+    text-align: left; /* Left align text */
+    line-height: 1.8; /* Set paragraph spacing */
+    margin-right: 20px; /* Space between description and levels */
+}
+
+.sponsorship-levels-bottom {
+    display: flex;
+    justify-content: center; /* Center the levels horizontally */
+    align-items: center; /* Center the levels vertically within their container */
+    flex: 1;
+    margin: auto auto; /* Center align horizontally */
+    padding: 0 10px; /* Dynamic padding to adjust centering */
+    gap: 10px; /* Add space between each level */
+    max-width: calc(50% - 20px); /* Dynamically adjust based on container size */
+}
+
+.level {
+    width: 30px; /* Size of the level icons */
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.level img {
+    width: 100%;
+    height: auto;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .sponsorship-box {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .sponsorship-description {
+        flex: 1 0 100%; /* Let the description take full width */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
+
+    .sponsorship-levels-bottom {
+        display: none; /* Hide levels initially on small screens */
+    }
+
+    .sponsorship-box:hover .sponsorship-levels-bubble {
+        display: flex; /* Show the bubble on hover */
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        right: 10px;
+        top: 10px;
+        z-index: 10;
+    }
+}
+
+/* Style for the bubble that appears on hover */
+.sponsorship-levels-bubble {
+    display: none; /* Hidden by default */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+

@@ -1,0 +1,42 @@
+/* src/components/TickIcon.css */
+
+/* Default color for larger screens */
+.tick-icon {
+    color: #444B5B; /* Default color */
+}
+
+/* Colors based on sponsorship level */
+.diamond .tick-icon {
+    color: #a3c858; /* Diamond color */
+}
+
+.gold .tick-icon {
+    color: #f0b429; /* Gold color */
+}
+
+.silver .tick-icon {
+    color: #6ca3a7; /* Silver color */
+}
+
+.bronze .tick-icon {
+    color: #d16161; /* Bronze color */
+}
+
+/* Media queries for smaller screens to apply rank colors */
+@media (max-width: 768px) {
+    .diamond .tick-icon {
+        color: #a3c858; /* Diamond color */
+    }
+
+    .gold .tick-icon {
+        color: #f0b429; /* Gold color */
+    }
+
+    .silver .tick-icon {
+        color: #6ca3a7; /* Silver color */
+    }
+
+    .bronze .tick-icon {
+        color: #d16161; /* Bronze color */
+    }
+}

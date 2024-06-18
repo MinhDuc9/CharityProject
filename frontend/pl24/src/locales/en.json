@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "home": "Home",
+    "programs": "Programs",
+    "program1": "Program 1",
+    "program2": "Program 2",
+    "program3": "Program 3",
+    "sponsor": "Sponsor",
+    "news": "News",
+    "contact": "Contact",
+    "donate": "Donate"
+  }
+}
