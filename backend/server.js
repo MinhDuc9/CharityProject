@@ -13,7 +13,6 @@ const route = require('./routes');
 // Database
 const db = require('./config/db');
 const port = process.env.PORT;
-const test = require('./insertText');
 
 //connect to Database
 db.connect();
