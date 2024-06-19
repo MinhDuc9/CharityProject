@@ -13,10 +13,9 @@ const oauth2Client = new google.auth.OAuth2(
 );
 
 class AdminController {
-    // [GET] /admin/login
+    // [POST] /admin/login
     login(req, res, next) {
-        // res.json(req.query);
-        const { username, password } = req.query;
+        const { username, password } = req.body;
 
         Admin.findOne({ username: username })
             .then((data) => {
