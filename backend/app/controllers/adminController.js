@@ -15,7 +15,49 @@ const oauth2Client = new google.auth.OAuth2(
 class AdminController {
     // [GET] /admin/login
     login(req, res, next) {
-        res.json(req.query);
+        // res.json(req.query);
+        const { username, password } = req.query;
+
+        Admin.findOne({ username: username })
+            .then((data) => {
+                if (data !== null) {
+                    const myPlaintextPassword = password;
+                    bcrypt.compare(
+                        myPlaintextPassword,
+                        data.password,
+                        function (err, result) {
+                            if (result) {
+                                res.send('Success');
+                            } else {
+                                res.send('Wrong password');
+                            }
+                        },
+                    );
+                } else {
+                    res.send('Wrong username');
+                }
+            })
+            .catch((err) => {
+                next(err);
+            });
+    }
+
+    // [POST] /admin/signup
+    async signUp(req, res, next) {
+        const { username, password } = req.body;
+
+        // Hash the password
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        const newAdmin = new Admin({
+            username,
+            password: hashedPassword,
+        });
+
+        await newAdmin.save();
+
+        res.send('Yes');
     }
 
     // [GET] /admin/auth

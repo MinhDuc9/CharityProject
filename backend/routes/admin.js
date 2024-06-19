@@ -8,5 +8,6 @@ router.get('/login', adminController.login);
 router.get('/auth', adminController.authenticate);
 router.get('/authCallBack', adminController.authCallBack);
 router.get('/lists', adminController.listFolderItems);
+router.post('/signup', adminController.signUp);
 
 module.exports = router;
