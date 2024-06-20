@@ -42,10 +42,10 @@ app.use(
 // Apply CORS middleware before session and routes
 app.use(
     cors({
-        origin: true,
+        origin: ["http://admin.localhost:3000"],
+        methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
-        optionsSuccessStatus: 200,
-    }),
+    })
 );
 app.use(
     express.urlencoded({
