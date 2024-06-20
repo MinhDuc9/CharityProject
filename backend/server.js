@@ -35,17 +35,18 @@ app.use(
         cookie: {
             httpOnly: true,
             secure: false,
-            maxAge: 5000 // five seconds, for testing
-        }
+            maxAge: 1800000, // Set session to expire after 30 minutes
+        },
     }),
 );
 // Apply CORS middleware before session and routes
 app.use(
     cors({
-      origin: true,
-      credentials: true,
-      optionsSuccessStatus: 200
-}))
+        origin: true,
+        credentials: true,
+        optionsSuccessStatus: 200,
+    }),
+);
 app.use(
     express.urlencoded({
         extended: true,
