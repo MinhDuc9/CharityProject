@@ -5,31 +5,65 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent the default form submission
-
+    const handleLogin = async (e) => {
+        e.preventDefault();
+    
         try {
             const response = await fetch('http://localhost:8080/admin/login', {
-                method: 'POST', // Change to POST
+                method: 'POST',
+                credentials: 'include', // Include cookies in the request
                 headers: {
-                    'Content-Type': 'application/json' // Indicate that we're sending JSON
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password }) // Send the username and password as JSON
+                body: JSON.stringify({ username, password })
             });
-
+    
+            const result = await response.json();
+            console.log('Server Response:', result);
+            setMessage(result.message);
+    
             if (response.ok) {
-                const result = await response.text(); // Read the response as text
-                console.log('Server Response:', result); // Log the response message to console
-                setMessage(result); // Set the response message (could be success or error)
-            } else {
-                const errorText = await response.text();
-                console.log('Error Response:', errorText); // Log the error message to console
-                setMessage(errorText); // Set the response message (could be success or error)
+                setIsAuthenticated(true); // Update authenticated state
             }
         } catch (error) {
             console.error('Error during login:', error);
             setMessage('Login failed due to an error.');
+        }
+    };
+    
+    // React fetch request with credentials
+    const checkSession = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/admin/dashboard', {
+                method: 'GET',
+                credentials: 'include' // Include cookies in the request
+            });
+
+            if (response.status === 401) {
+                console.log('Session expired or unauthorized access.');
+                setMessage('Session expired. Please log in again.');
+                setIsAuthenticated(false);
+            } else if (response.ok) {
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    const result = await response.json();
+                    console.log('Protected resource response:', result);
+                    setMessage(result.message || 'You have access to the protected resource.');
+                } else {
+                    const result = await response.text();
+                    console.log('Non-JSON response:', result);
+                    setMessage(result || 'You have access to the protected resource.');
+                }
+            } else {
+                const errorText = await response.text();
+                console.log('Error Response:', errorText);
+                setMessage(errorText || 'An error occurred while checking the session.');
+            }
+        } catch (error) {
+            console.error('Error checking session:', error);
+            setMessage('An error occurred while checking the session.');
         }
     };
 
@@ -38,7 +72,7 @@ const Login = () => {
             <div className={styles.loginBox}>
                 <h2>Login to Account</h2>
                 <p>Please enter your username and password to continue</p>
-                <form onSubmit={handleSubmit}> {/* Remove action and method */}
+                <form onSubmit={handleLogin}>
                     <div className={styles.inputGroup}>
                         <label htmlFor="user">Username:</label>
                         <input
@@ -71,6 +105,12 @@ const Login = () => {
                     <button type="submit" className={styles.loginButton}>Sign In</button>
                 </form>
                 {message && <p className={styles.message}>{message}</p>} {/* Display message */}
+                {/* Example button to check session */}
+                {isAuthenticated && (
+                    <button onClick={checkSession} className={styles.checkSessionButton}>
+                        Check Session
+                    </button>
+                )}
             </div>
         </div>
     );

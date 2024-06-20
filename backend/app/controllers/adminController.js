@@ -26,20 +26,46 @@ class AdminController {
                         data.password,
                         function (err, result) {
                             if (result) {
-                                res.send('Success');
+                                console.log('Password match, setting session adminId:', data._id);
+                                req.session.adminId = data._id;
+                                console.log('Session after setting adminId:', req.session);
+                                
+                                // Ensure the session is saved before sending the response
+                                req.session.save((err) => {
+                                    if (err) {
+                                        console.error('Session save error:', err);
+                                        return res.status(500).json({ message: 'Failed to save session' });
+                                    }
+                                    res.json({ message: 'Login successful' });
+                                });
                             } else {
-                                res.send('Wrong password');
+                                res.status(401).json({ message: 'Invalid username or password' });
                             }
                         },
                     );
                 } else {
-                    res.send('Wrong username');
+                    res.status(401).json({ message: 'Invalid username or password' });
                 }
             })
             .catch((err) => {
-                next(err);
+                res.status(500).json({ message: err });
             });
     }
+
+    // [GET] /admin/dashboard
+    dashBoard(req, res, next) {
+        console.log('Session data in dashboard:', req.session);
+        const adminId = req.session.adminId;
+
+        console.log('Test console: ', req.session.adminId);
+
+        if (adminId) { // Ensure that the session is correctly checked
+            res.status(200).send('Ok');
+        } else {
+            res.status(401).send('Out dated'); // Use 401 status for unauthorized
+        }
+    }
+
 
     // [POST] /admin/signup
     async signUp(req, res, next) {

@@ -32,10 +32,25 @@ app.use(
             // This function can access req object and customize the ID
             return 'custom_session_id';
         },
+        cookie: {
+            httpOnly: true,
+            secure: false,
+            maxAge: 5000 // five seconds, for testing
+        }
     }),
 );
-
-app.use(cors());
+// Apply CORS middleware before session and routes
+app.use(
+    cors({
+      origin: true,
+      credentials: true,
+      optionsSuccessStatus: 200
+}))
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
 app.use(express.json());
 app.use(cookieParser());
 
