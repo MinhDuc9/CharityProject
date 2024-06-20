@@ -36,22 +36,7 @@ class AdminController {
                                     req.session,
                                 );
 
-                                // Ensure the session is saved before sending the response
-                                req.session.save((err) => {
-                                    if (err) {
-                                        console.error(
-                                            'Session save error:',
-                                            err,
-                                        );
-                                        return res
-                                            .status(500)
-                                            .json({
-                                                message:
-                                                    'Failed to save session',
-                                            });
-                                    }
-                                    res.json({ message: 'Login successful' });
-                                });
+                                res.json({ message: 'Login successful' });
                             } else {
                                 res.status(401).json({
                                     message: 'Invalid username or password',
