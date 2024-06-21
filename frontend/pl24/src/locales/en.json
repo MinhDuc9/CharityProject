@@ -9,5 +9,11 @@
     "news": "NEWS",
     "contact": "CONTACT",
     "donate": "DONATE"
+  },
+  "home": {
+    "title": "Welcome to The Phiêu Linh Project",
+    "description": "Every child and young Vietnamese is a happy individual and a decent citizen.",
+    "learn_more": "LEARN MORE"
   }
+
 }

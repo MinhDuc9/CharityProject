@@ -7,9 +7,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f4f4f4; /* Light grey background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the nav bar */
+    padding: 10px 5%;
+
 
     position: sticky; /* Make the navbar sticky */
     top: 0; /* Stick to the top */
@@ -114,6 +113,45 @@ body {
 .future-button:hover {
     background-color: #ff4c4c;
 }
+
+.language-flag {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.flag-icon {
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 5px;
+    transition: border 0.2s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.language-change-text {
+    display: none; /* Hide the text initially */
+    background-color: #444B5B;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.language-flag:hover .language-change-text {
+    display: block; /* Show the text on hover */
+}
+
+.flag-icon:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 
 
 

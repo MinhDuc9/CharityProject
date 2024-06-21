@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './NavBar.css';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo-with-name.png';
 import { useTranslation } from 'react-i18next';
 
 const NavBar = () => {
@@ -14,6 +14,15 @@ const NavBar = () => {
     const handleLanguageToggle = () => {
         const newLanguage = i18n.language === 'vi' ? 'en' : 'vi';
         i18n.changeLanguage(newLanguage);
+    };
+
+    const getFlagUrl = () => {
+        const countryCode = i18n.language === 'vi' ? 'VN' : 'US'; // VN for Vietnamese, US for English
+        return `https://flagsapi.com/${countryCode}/flat/64.png`;
+    };
+
+    const getNextLanguage = () => {
+        return i18n.language === 'vi' ? 'English' : 'Vietnamese';
     };
 
     return (
@@ -57,9 +66,16 @@ const NavBar = () => {
             </ul>
             <div className="nav-buttons">
                 <button className="donate-button">{t('nav.donate')}</button>
-                <button className="future-button" onClick={handleLanguageToggle}>
-                    {i18n.language === 'vi' ? 'English' : 'Vietnamese'}
-                </button>
+                <div className="language-flag" onClick={handleLanguageToggle}>
+                    <img
+                        src={getFlagUrl()}
+                        alt={i18n.language === 'vi' ? 'Vietnamese' : 'English'}
+                        className="flag-icon"
+                    />
+                    <span className="language-change-text">
+                        Change to {getNextLanguage()}
+                    </span>
+                </div>
             </div>
         </nav>
     );
