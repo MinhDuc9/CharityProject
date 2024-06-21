@@ -1,0 +1,25 @@
+.summary-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 50px 5%;
+    background-color: #f4f4f4;
+}
+
+.summary-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: left;
+}
+
+.summary-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.summary-box p {
+    line-height: 1.6;
+}

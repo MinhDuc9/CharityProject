@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './NavBar.css';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo-with-name.png';
 import { useTranslation } from 'react-i18next';
 
 const NavBar = () => {
